@@ -18,9 +18,10 @@ public class DemoS3App {
     public static void main(String[] args) {
 
         System.out.println("Application to work with Amazon's S3");
-
+        // Bucket name where objects will be uploaded
         String bucketName = "viveknaskar";
         try {
+            // Providing the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY (dummy values provided below)
             AWSCredentials credentials = new BasicAWSCredentials(
                     "AKIAI2YBXUMDLWP6JMXQ",
                     "pvdZEMgsIDsYtvQyrwI2IxieXEylyPCqO3Sj0s46"
@@ -29,7 +30,7 @@ public class DemoS3App {
                     .withRegion(Regions.US_EAST_2)
                     .withCredentials(new AWSStaticCredentialsProvider(credentials))
                     .build();
-            //List All bucket names
+            // List All bucket names
             List<Bucket> buckets = s3Client.listBuckets();
             for (Bucket bucket : buckets) {
                 System.out.println("List of buckets available: " + bucket.getName());
